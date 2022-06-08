@@ -54,88 +54,6 @@ You will learn about
 - Provide a range of non-functional features that are common to large classes of projects (e.g. embedded servers, security, metrics, health checks, externalized configuration).
 - Absolutely no code generation and no requirement for XML configuration.
 
-### 2.3.1 Spring Boot Upgrade
-
-RECOMMENDED SPRING BOOT VERSION
-```
-<parent>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-parent</artifactId>
-	<version>2.3.1.RELEASE</version>
-</parent>
-```
-
-
-#### REST API
-
-Github Folder - https://github.com/in28minutes/spring-boot-master-class/blob/master/05.Spring-Boot-Advanced
-
-Final Code - https://github.com/in28minutes/spring-boot-master-class/blob/master/05.Spring-Boot-Advanced/2-3-1-upgrade.md
-
-Commit - https://github.com/in28minutes/spring-boot-master-class/commit/362dde4914be0dfdf222eb5ec360808ff29a3bc4
-
-New Code
-```
-
-<dependency>
-    <groupId>org.springframework.security</groupId>
-    <artifactId>spring-security-test</artifactId>
-    <scope>test</scope>
-</dependency>
-
-@RunWith(SpringRunner.class)
-@WebMvcTest(value = SurveyController.class)
-@WithMockUser
-public class SurveyControllerTest {
-
-```
-
-Old Code
-```
-
-@RunWith(SpringRunner.class)
-@WebMvcTest(value = SurveyController.class, secure = false)
-public class SurveyControllerTest {
-```
-
-## Web Application
-
-Github Folder - https://github.com/in28minutes/spring-boot-master-class/blob/master/02.Spring-Boot-Web-Application/
-
-Final Code - https://github.com/in28minutes/spring-boot-master-class/blob/master/02.Spring-Boot-Web-Application/2-3-1-upgrade.md
-
-Commit - https://github.com/in28minutes/spring-boot-master-class/commit/362dde4914be0dfdf222eb5ec360808ff29a3bc4
-
-Add this in pom.xml
-
-New Code
-```
-
-<dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-validation</artifactId>
-</dependency>
-
-```
-
-Commit - https://github.com/in28minutes/spring-boot-master-class/commit/e1fcbe1e6599708a0a7ba3698f1e84eebfe1756b
-
-TodoController.java
-- `deleteTodo` - Use `repository.deleteById(id);` instead of `repository.delete(id);`
-- `showUpdateTodoPage` - Use `Todo todo = repository.findById(id).get();` instead of `Todo todo = repository.findOne(id);`
-- `todo.jsp` - Use `modelAttribute` instead of `commandName`
-
-New Code
-```
-auth.inMemoryAuthentication()
-            .passwordEncoder(NoOpPasswordEncoder.getInstance())
-        		.withUser("in28Minutes").password("dummy")
-```
-
-Old Code
-```
-auth.inMemoryAuthentication().withUser("in28Minutes").password("dummy")
-```
 
 
 ### Step Wise Details
@@ -148,10 +66,6 @@ Refer each steps
 - You are NOT expected to have any experience with Eclipse or Maven.
 - We will help you install Eclipse and get up and running with Maven.
 
-## Installing Tools
-- Installation Video : https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
-- GIT Repository For Installation : https://github.com/in28minutes/getting-started-in-5-steps
-- PDF : https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf
 
 ## Running Examples
 - Download the zip or clone the Git repository.
@@ -163,7 +77,6 @@ Refer each steps
 - Choose the Spring Boot Application file (search for @SpringBootApplication)
 - Right Click on the file and Run as Java Application
 - You are all Set
-- For help : use our installation guide - https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
 
 
 ## Notes
@@ -264,6 +177,3 @@ Step 10 : Why is Spring Popular?
 
 Congratulations!
 ```
-
-### Troubleshooting
-- Refer our TroubleShooting Guide - https://github.com/in28minutes/in28minutes-initiatives/tree/master/The-in28Minutes-TroubleshootingGuide-And-FAQ
